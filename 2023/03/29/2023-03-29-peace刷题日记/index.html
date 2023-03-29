@@ -1,0 +1,465 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>peace刷题日记 | Peace博客日记</title><meta name="author" content="peace"><meta name="copyright" content="peace"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="10.13数组： 删除排序数组中的重复项 给你一个 升序排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。 由于在某些语言中不能改变数组的长度，所以必须将结果放在数组nums的第一部分。更规范地说，如果在删除重复项之后有 k 个元素，那么 nums 的前 k 个元素应该保存最终结果。 将最终结果插入 nu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="peace刷题日记">
+<meta property="og:url" content="https://peace2011.github.io/blog/2023/03/29/2023-03-29-peace%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Peace博客日记">
+<meta property="og:description" content="10.13数组： 删除排序数组中的重复项 给你一个 升序排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。 由于在某些语言中不能改变数组的长度，所以必须将结果放在数组nums的第一部分。更规范地说，如果在删除重复项之后有 k 个元素，那么 nums 的前 k 个元素应该保存最终结果。 将最终结果插入 nu">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://peace2011.github.io/blog/images/defaultcover3.png">
+<meta property="article:published_time" content="2023-03-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-28T16:00:00.000Z">
+<meta property="article:author" content="peace">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://peace2011.github.io/blog/images/defaultcover3.png"><link rel="shortcut icon" href="/blog/img/favicon.png"><link rel="canonical" href="https://peace2011.github.io/blog/2023/03/29/2023-03-29-peace%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'peace刷题日记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2023-03-29 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/blog/images%5Cavatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/blog/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/blog/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/blog/images%5Cdefaultcover3.png')"><nav id="nav"><span id="blog-info"><a href="/blog/" title="Peace博客日记"><span class="site-name">Peace博客日记</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/blog/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/blog/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">peace刷题日记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-28T16:00:00.000Z" title="发表于 2023-03-29 00:00:00">2023-03-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-28T16:00:00.000Z" title="更新于 2023-03-29 00:00:00">2023-03-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="peace刷题日记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="10-13"><a href="#10-13" class="headerlink" title="10.13"></a>10.13</h2><p>数组：</p>
+<h3 id="删除排序数组中的重复项"><a href="#删除排序数组中的重复项" class="headerlink" title="删除排序数组中的重复项"></a>删除排序数组中的重复项</h3><blockquote>
+<p>给你一个 升序排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。</p>
+<p>由于在某些语言中不能改变数组的长度，所以必须将结果放在数组nums的第一部分。更规范地说，如果在删除重复项之后有 k 个元素，那么 nums 的前 k 个元素应该保存最终结果。</p>
+<p>将最终结果插入 nums 的前 k 个位置后返回 k 。</p>
+<p>不要使用额外的空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,1,2]</span><br><span class="line">输出：2, nums = [1,2,_]</span><br><span class="line">解释：函数应该返回新的长度 2 ，并且原数组 nums 的前两个元素被修改为 1, 2 。不需要考虑数组中超出新长度后面的元素。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>题解：1.双指针滑动法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">removeDuplicates</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">    <span class="comment">//在数组长度小于2时，直接返回 数组长度</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length&lt;<span class="number">2</span>) <span class="keyword">return</span> nums.length;</span><br><span class="line">    <span class="comment">//定义左右指针，右指针在左指针初始位置往右靠1位</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> left + <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 当左右指针指向的树不等时，左指针右移一位，右指针的值赋给左指针的位置</span></span><br><span class="line">    <span class="keyword">for</span> (; right &lt; nums.length; right++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[left] != nums[right])&#123;</span><br><span class="line">            nums[++left] = nums[right];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//最后返回长度时，因为指针值从0开始，因此要返回左指针的值+1</span></span><br><span class="line">    <span class="comment">//这里其实也可以额外定义一个变量，在每次左右指针值不等时+1，最后返回即可</span></span><br><span class="line">    <span class="keyword">return</span> left + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>感想</strong></p>
+<blockquote>
+<p>双指针真牛逼</p>
+</blockquote>
+<h3 id="买卖股票的最佳时机-II"><a href="#买卖股票的最佳时机-II" class="headerlink" title="买卖股票的最佳时机 II"></a>买卖股票的最佳时机 II</h3><p>解题思路</p>
+<h4 id="方法一：动态规划"><a href="#方法一：动态规划" class="headerlink" title="方法一：动态规划"></a><strong>方法一：动态规划</strong></h4><blockquote>
+<p>首先我们要清楚，在某一天内，一个人只有两种状态：</p>
+<ol>
+<li>有一支股票</li>
+<li>没有股票</li>
+</ol>
+<p>那么我们假设当天这个人有一支股票，那么只能有两种情况：</p>
+<ol>
+<li><p>他在前一天就买了股票，而且今天也没有卖</p>
+</li>
+<li><p>他前一天没有股票，但是今天买了一支股票</p>
+</li>
+</ol>
+<p>那么我们就可以得出式子</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0---没有股票  	1---有一支股票 	i---第i天  	dp[i][1]---此人在第i天有股票的情况下的收入</span><br><span class="line">dp[i][1] = dp[i-1][0] - price[i]  || dp[i-1][1]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>我们要求的只是最大利润，所以我们直接在两者之间取最大值，就可以得到代码</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dp[i][<span class="number">1</span>] = Math.max(dp[i-<span class="number">1</span>][<span class="number">0</span>] - prices[i], dp[i-<span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line"><span class="comment">//同理,第i天没有股票也可以这样表示</span></span><br><span class="line">dp[i][<span class="number">0</span>] = Math.max(dp[i-<span class="number">1</span>][<span class="number">1</span>] + prices[i],dp[i-<span class="number">1</span>][<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>最后，理论上，在最后一天，一定是手上没有股票，收益最大，因此，我们最后直接返回最后一天受伤没有股票的情况</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> dp[i][<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
+
+<p>说明：首先，此处为了便于理解，直接用了二维数组，实际上，可以直接用两个变量来记录当天是否有股票，例如</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//hold 代表持有股票的收益  nohold -- 没持有股票的收益</span></span><br><span class="line">hold = Math.max(nohold - price[i],hold);</span><br><span class="line">noHold = Math.max(noHold, hold + prices[i]);</span><br></pre></td></tr></table></figure>
+
+<p><strong>总结</strong></p>
+<p>​	动态规划 — 重点在于找到状态转移方程，即每一步是由前一步如何得到的，把所有的状态罗列出来，再选出符合我们要求的一种。利用这种方法可以帮助我们解决很多复杂的问题</p>
+<p>​	但是这种方法的弊端很明显，首先是状态转移方程很难寻找，其次，这种方法会将每一次各种情况都存储下来，再在其中找到最优解，在数据量庞大的情况下，<strong>空间复杂度太高</strong></p>
+<p>​	针对于这道题，更优解是贪心算法，所以下面来看解法2</p>
+<h4 id="方法二：贪心算法"><a href="#方法二：贪心算法" class="headerlink" title="方法二：贪心算法"></a>方法二：贪心算法</h4><blockquote>
+<p>首先我们知道，要股票赚钱，办法就是在低价买入，高价卖出。</p>
+<p>在这道题内，告诉了我们所有日期的股价，意味着我们可以提前买入低价（最低价），在高价卖出(这里的高价是最高价，即过了这个价格马上就要跌)，而且都是100%正确(ps:要是现实中有这能力，直接世界首富了)</p>
+<p>因此，我们需要做的就是，在一次循环中，比较下一天的股价是否比今天小，如果还小，就让等待，同时使劲按继续循环，等到最低价，(逻辑)买入，因为我们在代码中实现，只需要计算利润，因此，我们直接记住这个最低价，然后再用相同的方法，找到最高价</p>
+<p>此时，我们直接用最高价减去最低价得到我们的利润，并累加，知道循环结束</p>
+<p>tips：我们在得到利润时，记得让index++，即手动给index+1，不然就会因为我们前面的判断陷入死循环，导致程序超时</p>
+</blockquote>
+<p>下面是贪心代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (prices == <span class="literal">null</span> || prices.length &lt; <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//找到股票价格不继续下降的一天</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">money</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; prices.length)&#123;</span><br><span class="line">            <span class="comment">//如果下一天继续跌，就不买，等到再下一天</span></span><br><span class="line">            <span class="keyword">while</span> (index &lt; prices.length - <span class="number">1</span> &amp;&amp; prices[index] &gt;= prices[index+<span class="number">1</span>])</span><br><span class="line">                index++;</span><br><span class="line">            <span class="comment">//默认买入股票，记下这段时间的最低价格</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">min</span> <span class="operator">=</span> prices[index];</span><br><span class="line">            <span class="comment">//如果下一天股票继续升，就不卖，等到开始降了，就卖</span></span><br><span class="line">            <span class="keyword">while</span> (index &lt; prices.length - <span class="number">1</span> &amp;&amp; prices[index] &lt;= prices[index+<span class="number">1</span>])</span><br><span class="line">                index++;</span><br><span class="line">            <span class="comment">//默认卖出股票，算出这段时间的利润(只赚不赔)   </span></span><br><span class="line">            <span class="comment">//记住这里要手动让index+1 !!!</span></span><br><span class="line">            money += prices[index++] - min;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> money;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>看到这些大佬写的代码，越发感觉自己是 <strong>曹操儿媳妇进菜园</strong></p>
+<h2 id="10-14"><a href="#10-14" class="headerlink" title="10.14"></a>10.14</h2><h3 id="旋转数组"><a href="#旋转数组" class="headerlink" title="旋转数组"></a>旋转数组</h3><blockquote>
+<p>给你一个数组，将数组中的元素向右轮转 <code>k</code> 个位置，其中 <code>k</code> 是非负数。</p>
+<p>输入: nums &#x3D; [1,2,3,4,5,6,7], k &#x3D; 3<br>输出: [5,6,7,1,2,3,4]<br>解释:<br>向右轮转 1 步: [7,1,2,3,4,5,6]<br>向右轮转 2 步: [6,7,1,2,3,4,5]<br>向右轮转 3 步: [5,6,7,1,2,3,4]</p>
+</blockquote>
+<p>解题思路：</p>
+<p><strong>方法一</strong></p>
+<p>既然是最后面元素会移到前面，那直接将数组复制一份，并且首尾相连，然后返回拼接的数组</p>
+<p>理论可行</p>
+<p><strong>方法二</strong></p>
+<p>多次反转</p>
+<p>先反转所有，再反转前k个，最后再反转剩下的</p>
+<h3 id="存在重复元素"><a href="#存在重复元素" class="headerlink" title="存在重复元素"></a>存在重复元素</h3><blockquote>
+<p>给你一个整数数组 <code>nums</code> 。如果任一值在数组中出现 <strong>至少两次</strong> ，返回 <code>true</code> ；如果数组中每个元素互不相同，返回 <code>false</code> 。</p>
+</blockquote>
+<p><strong>解法一</strong></p>
+<p>用一个hashmap，存储数组值，每次调用一次contains方法，若包含了，则返回true，若循环结束还没有返回，则返回false</p>
+<p>还有个思路是用set，set只有单列，因此无论是速度还是内存上，都要小得多。set的add方法，若之前set内有该元素，则返回false，否则返回true</p>
+<p><strong>解法二</strong></p>
+<p>暴力解法，双重循环</p>
+<p>时间复杂度太高，不建议使用</p>
+<p><strong>解法三</strong></p>
+<p>先将数组排序，一次比较是否有后一位是否和前一位相同，若相同，则直接返回true，反之则返回false</p>
+<h2 id="10-15"><a href="#10-15" class="headerlink" title="10.15"></a>10.15</h2><h3 id="大话数据结构之——栈的应用"><a href="#大话数据结构之——栈的应用" class="headerlink" title="大话数据结构之——栈的应用"></a>大话数据结构之——栈的应用</h3><h4 id="后缀表达式计算结果"><a href="#后缀表达式计算结果" class="headerlink" title="后缀表达式计算结果"></a>后缀表达式计算结果</h4><p><em><em>931-3</em>+102&#x2F;+</em>*</p>
+<p>类似这种式子叫做后缀表达式，它是由波兰逻辑学家想出的一种表示方法，便于用计算机用栈来实现</p>
+<p>计算思想</p>
+<blockquote>
+<ol>
+<li>遍历表达式的每个字符，遇到数字就进栈，</li>
+<li>遇到运算符号就从栈顶弹出两个元素，然后进行运算</li>
+<li>将运算结果进栈</li>
+<li>表达式遍历完成之后弹出结果</li>
+</ol>
+</blockquote>
+<h4 id="中缀表达式转化为后缀表达式"><a href="#中缀表达式转化为后缀表达式" class="headerlink" title="中缀表达式转化为后缀表达式"></a>中缀表达式转化为后缀表达式</h4><p>*<em>9+(3-1)<em>3+10&#x2F;2</em></em></p>
+<p>这类式子叫做中缀表达式，是符合我们平时运算逻辑的一种表达式，可是计算机无法识别，因此，我们要将中缀表达式转化为后转表达式的算法</p>
+<p>计算思想</p>
+<blockquote>
+<ol>
+<li>遍历表达式的每一个字符，遇到数字就输出，成为后缀表达式的一部分</li>
+<li>遇到符号，则判断此符号和栈顶元素的优先级<ol>
+<li>若该符号为”)”或者优先级低于栈顶元素，则栈顶元素依次出栈并输出，并将当前符号进栈</li>
+<li>若高于栈顶元素，则进栈</li>
+</ol>
+</li>
+<li>直到最终输出后缀表达式为止</li>
+</ol>
+</blockquote>
+<p>这里有一个大坑就是 + 号的优先级要小于任何符号(“(“除外)，因此，在遇到”+”进栈时我们可以直接将所有的符号出栈，”(“除外，它只有在”)”来时才可以出栈</p>
+<h2 id="10-17"><a href="#10-17" class="headerlink" title="10.17"></a>10.17</h2><h3 id="只出现一次的数字"><a href="#只出现一次的数字" class="headerlink" title="只出现一次的数字"></a>只出现一次的数字</h3><blockquote>
+<p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p>
+<p>说明：</p>
+<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+</blockquote>
+<p>思路：</p>
+<ol>
+<li>先将数组排序，然后遍历数组进行比较，若一个数不在第一位和最后一位，且前后元素都和它不相等，即是我们要找的元素</li>
+</ol>
+<p>答案：<strong>异或运算</strong></p>
+<blockquote>
+<p>异或运算有一个规律就是：</p>
+<ol>
+<li>两个相同的数异或值为0</li>
+<li>0和一个数异或值为数本身</li>
+<li>异或运算具有交换率</li>
+</ol>
+</blockquote>
+<p>因此直接遍历元素的同时对元素的每个值进行异或运算，最后的值就是需要求的值</p>
+<h3 id="两个数组的交集-II"><a href="#两个数组的交集-II" class="headerlink" title="两个数组的交集 II"></a>两个数组的交集 II</h3><blockquote>
+<p>给你两个整数数组 nums1 和 nums2 ，请你以数组形式返回两数组的交集。返回结果中每个元素出现的次数，应与元素在两个数组中都出现的次数一致（如果出现次数不一致，则考虑取较小值）。可以不考虑输出结果的顺序。</p>
+</blockquote>
+<p>解法：</p>
+<h4 id="1-指针滑动"><a href="#1-指针滑动" class="headerlink" title="1.指针滑动"></a>1.指针滑动</h4><ol>
+<li><p>将两个数组进行排序</p>
+</li>
+<li><p>分别定义两个指针指向两个数组，对两个数组进行遍历，并比较</p>
+<ol>
+<li>若两个指针指向元素相等，则将这个元素加入list，同时两个指针同时向后移动以为</li>
+<li>若不相等，则让指向小值的指针向后移动一位，直到两个数组任意一个到达数组结尾</li>
+</ol>
+</li>
+</ol>
+<h4 id="2-map解法"><a href="#2-map解法" class="headerlink" title="2.map解法"></a>2.map解法</h4><ol>
+<li>遍历nums1，同时将元素存储到map中去，值存储键出现的次数</li>
+<li>遍历nums2，依次判断map中是否含有对应的键值，若含有且该键的值不为0，则直接将该值加入列表中，同时map的值减少一</li>
+<li>最后将得到的list转化为数组</li>
+</ol>
+<h3 id="加一"><a href="#加一" class="headerlink" title="加一"></a>加一</h3><blockquote>
+<p>给定一个由 整数 组成的 非空 数组所表示的非负整数，在该数的基础上加一。</p>
+<p>最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。</p>
+<p>你可以假设除了整数 0 之外，这个整数不会以零开头。</p>
+</blockquote>
+<p>思路：</p>
+<p>peace:</p>
+<ol>
+<li>在给定的数组的基础之上，从后往前遍历，在最后一位+1</li>
+<li>若当前元素等于9，则将该位置为0，往后遍历</li>
+<li>若当前元素&lt;9,则将该位+1后退出循环</li>
+<li>若循环到最高位，则将最高位置为0的同时，创造一个长度+1的新数组，从第二位开始循环赋值，第一位为1</li>
+</ol>
+<p>优化：</p>
+<blockquote>
+<p>99 + 1 &#x3D; 100,如果全是9的情况加，+1之后除了位数进1之外，所有的除了最高位的都是0，说明不需要重新赋值，直接让新的大1数组第一位为1即可。</p>
+<p>优化之后内存消耗大大减少</p>
+</blockquote>
+<h2 id="10-18"><a href="#10-18" class="headerlink" title="10.18"></a>10.18</h2><h3 id="移动零"><a href="#移动零" class="headerlink" title="移动零"></a>移动零</h3><blockquote>
+<p>给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。</p>
+<p><strong>请注意</strong> ，必须在不复制数组的情况下原地对数组进行操作。</p>
+</blockquote>
+<p>实现思路：</p>
+<blockquote>
+<p>冒泡实现，首先遍历数组，找到0时对0进行冒泡，将其冒泡到数组的末尾</p>
+<p>有一个bug就是当两个0相连时，对冒泡之后本来的地方还是0，因此交换后它就此被遗漏了，因此还有个方法就是对它进行判断，若后面一位还是0，直接跳过对它的交换，在同一轮中让j++,找到非0再交换</p>
+</blockquote>
+<h3 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h3><p>给定一个数组，和一个目标值target，求数组中满足两数之和为taget的下标</p>
+<p>思路：</p>
+<blockquote>
+<p>新建一个hashmap，键为数组值，值为索引，遍历数组的同时get查看map中(target-num[i])的键是否存在，若已存在，则直接返回i和map.get(target-num[i]),即两个数的索引，若不存在，则将这个元素的值和索引存入到map中</p>
+</blockquote>
+<h2 id="10-19"><a href="#10-19" class="headerlink" title="10.19"></a>10.19</h2><h3 id="有效的数独"><a href="#有效的数独" class="headerlink" title="有效的数独"></a>有效的数独</h3><blockquote>
+<p>请你判断一个 9 x 9 的数独是否有效。只需要 根据以下规则 ，验证已经填入的数字是否有效即可。</p>
+<p>数字 1-9 在每一行只能出现一次。<br>数字 1-9 在每一列只能出现一次。<br>数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。（请参考示例图）</p>
+</blockquote>
+<p><img src="E:\peace\笔记\asserts\image-20221019203159683.png" alt="image-20221019203159683"></p>
+<h3 id="旋转图像"><a href="#旋转图像" class="headerlink" title="旋转图像"></a>旋转图像</h3><blockquote>
+<p>给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。</p>
+<p>你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。</p>
+</blockquote>
+<p><img src="E:\peace\笔记\asserts\image-20221019204005763.png" alt="image-20221019204005763"></p>
+<h2 id="11-17-反转"><a href="#11-17-反转" class="headerlink" title="11.17  (反转)"></a>11.17  (反转)</h2><p>今日主题：<strong>反转</strong></p>
+<p>反转有数字反转，数组反转，链表反转</p>
+<p>反转需要根据具体的类型来确定不同的反转方案</p>
+<h3 id="数字反转"><a href="#数字反转" class="headerlink" title="数字反转"></a><strong>数字反转</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：x = 123</span><br><span class="line">输出：321</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>先对原数字和10取余得到个位数的数字。然后将sum*10后加上原数字，最后再将数字缩小10倍，如此循环。直到原数字为0。</p>
+<p>利用了数字取余的特性和数字位数之间相差一个数量级的特性</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">reverse</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">while</span>(x != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> x % <span class="number">10</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">newRes</span> <span class="operator">=</span> res * <span class="number">10</span> + num</span><br><span class="line">            <span class="title function_">if</span><span class="params">((newRes - num)</span> / <span class="number">10</span> != res)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            res = newRes;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="数组反转"><a href="#数组反转" class="headerlink" title="数组反转"></a><strong>数组反转</strong></h3><blockquote>
+<p> 数组反转逻辑比较简单，就是利用双指针分别遍历数组，再交换两个指针指向的元素，直至遍历完成</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reverseString1</span><span class="params">(<span class="type">char</span>[] s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> start=<span class="number">0</span>,end = s.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (start &lt; end)&#123;</span><br><span class="line">            <span class="type">char</span> <span class="variable">temp</span> <span class="operator">=</span> s[start++];</span><br><span class="line">            s[start-<span class="number">1</span>] = s[end--];</span><br><span class="line">            s[end+<span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    System.out.println(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="链表反转"><a href="#链表反转" class="headerlink" title="链表反转"></a><strong>链表反转</strong></h3><p>链表反转有两种反转方式，<strong>遍历</strong> 和 <strong>递归</strong></p>
+<p><strong>遍历</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reverseNode</span><span class="params">(Node head)</span>&#123;</span><br><span class="line">    <span class="type">Node</span> <span class="variable">pre</span> <span class="operator">=</span> <span class="literal">null</span>,next;</span><br><span class="line">    <span class="type">Node</span> <span class="variable">curr</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="keyword">while</span> (curr != <span class="literal">null</span>)&#123;</span><br><span class="line">        next = curr.next;</span><br><span class="line">        curr.next = pre;</span><br><span class="line">        pre = curr;</span><br><span class="line">        curr = next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pre;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>递归</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reverseNode</span><span class="params">(Node head)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(head == <span class="literal">null</span> || head.next == <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">Node</span> <span class="variable">node</span> <span class="operator">=</span> reverseNode(head.next);</span><br><span class="line">    head.next.next = head;</span><br><span class="line">    <span class="comment">//避免指针混乱</span></span><br><span class="line">    head.next = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>递归方法类似于两个线程，利用递归寻找到原顺序的最后一个节点(<strong>反转后的头节点</strong>)，然后在递归中一直将这个节点返回(<strong>不参与运算</strong>)，在每次递归中，将一个依次对每个节点做操作，使其下一个节点指向它本身。这个操作 head.next.next &#x3D; head; 然后让他本身指向null(<strong>据说是避免指针混乱，但是我没有发现出现混乱的原因</strong>)，最后得到层层返回的头节点。</p>
+</blockquote>
+<p><strong>避免指针混乱，head.next &#x3D; null;</strong></p>
+<p>按照原有逻辑，head.next会被上一层的head.next.next &#x3D; head覆盖，但是，若是到了最表层循环，没有再上一层的循环来覆盖原有方向的指针，因此就会出现指针混乱，即双向指针，在遍历时会进入无限循环</p>
+<p><img src="E:\peace\笔记\asserts\image-20221117114434149.png" alt="image-20221117114434149"></p>
+<h2 id="11-21"><a href="#11-21" class="headerlink" title="11.21"></a>11.21</h2><h3 id="1-字符串中的第一个唯一字符"><a href="#1-字符串中的第一个唯一字符" class="headerlink" title="1. 字符串中的第一个唯一字符"></a><strong>1. 字符串中的第一个唯一字符</strong></h3><blockquote>
+<p>给定一个字符串 <code>s</code> ，找到 <em>它的第一个不重复的字符，并返回它的索引</em> 。如果不存在，则返回 <code>-1</code> 。</p>
+</blockquote>
+<p>​	构建一个hashmap，遍历字符串，将其中的元素统计次数，统计好后，最后再次遍历，返回第一个次数为1的下标</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">firstUniqChar</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length()&lt;<span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        HashMap&lt;Character, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(c))&#123;</span><br><span class="line">                map.put(c, map.get(c)+<span class="number">1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                map.put(c, <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (map.get(s.charAt(i))==<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>有效的字母异位同</li>
+</ol>
+<blockquote>
+<p>给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。</p>
+<p>注意：若 s 和 t 中每个字符出现的次数都相同，则称 s 和 t 互为字母异位词。</p>
+</blockquote>
+<p>方法1</p>
+<p>​	将字符串转化为字节并且求总和，再减去第二个字符串的遍历的字节数，若最后结果为0，则是有效的字母异位同，反之则不是</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isAnagram</span><span class="params">(String s, String t)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (s.length() != t.length())</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="type">int</span>[] letterCount = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">26</span>];</span><br><span class="line">    <span class="comment">//统计字符串s中的每个字符的数量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; s.length(); i++)</span><br><span class="line">        letterCount[s.charAt(i) - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">    <span class="comment">//减去字符串t中的每个字符的数量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; t.length(); i++) &#123;</span><br><span class="line">        <span class="comment">//如果当前字符等于0，直接返回false，</span></span><br><span class="line">        <span class="keyword">if</span> (letterCount[t.charAt(i) - <span class="string">&#x27;a&#x27;</span>] == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        letterCount[t.charAt(i) - <span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>方法2</p>
+<p>​	先排序，使用API对两个字节数组进行排序，排序后依次进行比较</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isAnagram</span><span class="params">(String s, String t)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (s.length()!=t.length()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="type">char</span>[] charsA = s.toCharArray();</span><br><span class="line">    <span class="type">char</span>[] charsB = t.toCharArray();</span><br><span class="line">    Arrays.sort(charsA);</span><br><span class="line">    Arrays.sort(charsB);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; charsA.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (charsA[i] != charsB[i])&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="11-26"><a href="#11-26" class="headerlink" title="11.26"></a>11.26</h2><h3 id="1-外观数列"><a href="#1-外观数列" class="headerlink" title="1.外观数列"></a><strong>1.外观数列</strong></h3><blockquote>
+<ol>
+<li><pre><code>1
+</code></pre>
+</li>
+<li><pre><code>11
+</code></pre>
+</li>
+<li><pre><code>21
+</code></pre>
+</li>
+<li><pre><code>1211
+</code></pre>
+</li>
+<li><pre><code>111221
+第一项是数字 1 
+描述前一项，这个数是 1 即 “ 一 个 1 ”，记作 &quot;11&quot;
+描述前一项，这个数是 11 即 “ 二 个 1 ” ，记作 &quot;21&quot;
+描述前一项，这个数是 21 即 “ 一 个 2 + 一 个 1 ” ，记作 &quot;1211&quot;
+描述前一项，这个数是 1211 即 “ 一 个 1 + 一 个 2 + 二 个 1 ” ，记作 &quot;111221&quot;
+</code></pre>
+</li>
+</ol>
+</blockquote>
+<p>​	这个题目拆分下来就是一个递归，先写出结束条件，然后得到前一次调用自身时返回的字符串，对字符串进行数字统计，相同时+1，遇到不同的话将count和其自身加入StringBuffer，最后返回toString的字符串</p>
+<blockquote>
+<p>需要注意的是统计自身数字时会遇到数组指针越界问题，针对这个问题可以采用i和i-1来解决，只是最后需要对最后一个数字进行手动添加</p>
+<p>还可以每次将得到的字符串转化为数字，然后每次取个位的数字，进行统计，遇到不同的将结果输入栈中，最后再把栈中的数字输出</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">countAndSay</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> String.valueOf(n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">String</span> <span class="variable">in</span> <span class="operator">=</span> countAndSay(n - <span class="number">1</span>);</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; in.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (in.charAt(i) == in.charAt(i-<span class="number">1</span>))&#123;</span><br><span class="line">                count++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ans.append(count);</span><br><span class="line">            ans.append(in.charAt(i-<span class="number">1</span>));</span><br><span class="line">            count=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">            ans.append(count);</span><br><span class="line">            ans.append(in.charAt(in.length()-<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> ans.toString();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-最长公共前缀"><a href="#2-最长公共前缀" class="headerlink" title="2.最长公共前缀"></a><strong>2.最长公共前缀</strong></h3><p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
+<p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
+<blockquote>
+<p>输入：strs &#x3D; [“flower”,”flow”,”flight”]<br>输出：”fl”</p>
+<p>输入：strs &#x3D; [“dog”,”racecar”,”car”]<br>输出：””<br>解释：输入不存在公共前缀。</p>
+</blockquote>
+<p>​	核心思想就是利用了公共前缀的概念，若有两个字符串公共前缀为””则全部的都为””,因此，我们可以直接在直接定义第一个元素为暂定的公共前缀pre，然后依次和数组的每一个元素进行比较，核心方法是 str.indexof(String str1)这个方法会返回str字符串中str1的第一个字符的索引位置，若不存在，则会返回-1，如果该返回值!&#x3D;0,则说明不是前缀，因此再次对pre进行截取，直到为0或者字符串为””为止</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">longestCommonPrefix</span><span class="params">(String[] strs)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (strs.length == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">String</span> <span class="variable">pre</span> <span class="operator">=</span> strs[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (String str : strs) &#123;</span><br><span class="line">            <span class="keyword">while</span> (str.indexOf(pre) != <span class="number">0</span>)&#123;</span><br><span class="line">                pre = pre.substring(<span class="number">0</span>,pre.length()-<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (pre.equals(<span class="string">&quot;&quot;</span>))&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-删除链表倒数第n个节点"><a href="#3-删除链表倒数第n个节点" class="headerlink" title="3. 删除链表倒数第n个节点"></a>3. 删除链表倒数第n个节点</h3><blockquote>
+<p>输入：head &#x3D; [1,2,3,4,5], n &#x3D; 2<br>输出：[1,2,3,5]</p>
+</blockquote>
+<p>​	关键在于找到倒数第n+1个节点，然后再让该节点跳过下一个节点</p>
+<p><strong>1.非递归</strong></p>
+<pre><code> 1. 双指针，让一个指针先走n步，然后两个指针同时往后遍历，当先走的指针到达链表尾部时，后面的指针指向的节点就是要删除的节点，同理，让指针先走n+1步，后面的就是我们需要操作的指针
+ 2. 最能想到的方法，遍历一遍链表，记录长度 ，然后根据长度算出需要操作的指针，最后再根据次数遍历链表找到我们需要的指针
+</code></pre>
+<p><strong>2. 递归</strong></p>
+<p>​	逆序递归链表，类似于递归实现链表反转，调用自身传入node.next,找到链表末尾，然后从最后开始从0开始+1,代表倒数第几个节点，就能找到我们需要的节点</p>
+<p>此处用递归实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">removeNthFromEnd</span><span class="params">(ListNode head, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">       <span class="type">int</span> <span class="variable">pos</span> <span class="operator">=</span> length(head, n);</span><br><span class="line">       <span class="keyword">if</span> (pos == n)&#123;</span><br><span class="line">           <span class="keyword">return</span> head.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> head;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">length</span><span class="params">(ListNode node, <span class="type">int</span> n)</span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (node == <span class="literal">null</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="type">int</span> <span class="variable">pos</span> <span class="operator">=</span> length(node.next, n) + <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">if</span> (pos == n+<span class="number">1</span>)&#123;</span><br><span class="line">           node.next = node.next.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> pos;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://peace2011.github.io/blog">peace</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://peace2011.github.io/blog/2023/03/29/2023-03-29-peace%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0/">https://peace2011.github.io/blog/2023/03/29/2023-03-29-peace%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://peace2011.github.io/blog" target="_blank">Peace博客日记</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/blog/images%5Cdefaultcover3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/blog/2023/03/29/2023-03-29/" title="第一篇文章"><img class="cover" src="/blog/images%5Cdefaultcover3.png" onerror="onerror=null;src='/blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第一篇文章</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/blog/images%5Cavatar.jpg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">peace</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/peace2011" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/blog/1798872280@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-13"><span class="toc-number">1.</span> <span class="toc-text">10.13</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9"><span class="toc-number">1.1.</span> <span class="toc-text">删除排序数组中的重复项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-II"><span class="toc-number">1.2.</span> <span class="toc-text">买卖股票的最佳时机 II</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">1.2.1.</span> <span class="toc-text">方法一：动态规划</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.2.</span> <span class="toc-text">方法二：贪心算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-14"><span class="toc-number">2.</span> <span class="toc-text">10.14</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84"><span class="toc-number">2.1.</span> <span class="toc-text">旋转数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0"><span class="toc-number">2.2.</span> <span class="toc-text">存在重复元素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-15"><span class="toc-number">3.</span> <span class="toc-text">10.15</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E2%80%94%E2%80%94%E6%A0%88%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">3.1.</span> <span class="toc-text">大话数据结构之——栈的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97%E7%BB%93%E6%9E%9C"><span class="toc-number">3.1.1.</span> <span class="toc-text">后缀表达式计算结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%8C%96%E4%B8%BA%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">3.1.2.</span> <span class="toc-text">中缀表达式转化为后缀表达式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-17"><span class="toc-number">4.</span> <span class="toc-text">10.17</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-number">4.1.</span> <span class="toc-text">只出现一次的数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86-II"><span class="toc-number">4.2.</span> <span class="toc-text">两个数组的交集 II</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%8C%87%E9%92%88%E6%BB%91%E5%8A%A8"><span class="toc-number">4.2.1.</span> <span class="toc-text">1.指针滑动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-map%E8%A7%A3%E6%B3%95"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.map解法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E4%B8%80"><span class="toc-number">4.3.</span> <span class="toc-text">加一</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-18"><span class="toc-number">5.</span> <span class="toc-text">10.18</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E9%9B%B6"><span class="toc-number">5.1.</span> <span class="toc-text">移动零</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="toc-number">5.2.</span> <span class="toc-text">两数之和</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-19"><span class="toc-number">6.</span> <span class="toc-text">10.19</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E6%95%88%E7%9A%84%E6%95%B0%E7%8B%AC"><span class="toc-number">6.1.</span> <span class="toc-text">有效的数独</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F"><span class="toc-number">6.2.</span> <span class="toc-text">旋转图像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-17-%E5%8F%8D%E8%BD%AC"><span class="toc-number">7.</span> <span class="toc-text">11.17  (反转)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC"><span class="toc-number">7.1.</span> <span class="toc-text">数字反转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%8F%8D%E8%BD%AC"><span class="toc-number">7.2.</span> <span class="toc-text">数组反转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E5%8F%8D%E8%BD%AC"><span class="toc-number">7.3.</span> <span class="toc-text">链表反转</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-21"><span class="toc-number">8.</span> <span class="toc-text">11.21</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%94%AF%E4%B8%80%E5%AD%97%E7%AC%A6"><span class="toc-number">8.1.</span> <span class="toc-text">1. 字符串中的第一个唯一字符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-26"><span class="toc-number">9.</span> <span class="toc-text">11.26</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%A4%96%E8%A7%82%E6%95%B0%E5%88%97"><span class="toc-number">9.1.</span> <span class="toc-text">1.外观数列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80"><span class="toc-number">9.2.</span> <span class="toc-text">2.最长公共前缀</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="toc-number">9.3.</span> <span class="toc-text">3. 删除链表倒数第n个节点</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/2023/03/29/2023-03-29/" title="第一篇文章"><img src="/blog/images%5Cdefaultcover3.png" onerror="this.onerror=null;this.src='/blog/img/404.jpg'" alt="第一篇文章"/></a><div class="content"><a class="title" href="/blog/2023/03/29/2023-03-29/" title="第一篇文章">第一篇文章</a><time datetime="2023-03-28T16:00:00.000Z" title="发表于 2023-03-29 00:00:00">2023-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2023/03/29/2023-03-29-peace%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0/" title="peace刷题日记"><img src="/blog/images%5Cdefaultcover3.png" onerror="this.onerror=null;this.src='/blog/img/404.jpg'" alt="peace刷题日记"/></a><div class="content"><a class="title" href="/blog/2023/03/29/2023-03-29-peace%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0/" title="peace刷题日记">peace刷题日记</a><time datetime="2023-03-28T16:00:00.000Z" title="发表于 2023-03-29 00:00:00">2023-03-29</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/blog/images%5Cdefaultcover3.png')"><div id="footer-wrap"><div class="copyright">&copy;2023 By peace</div><div class="footer_custom_text">I wish you to become your own sun, no need to rely on who's light.<p><a target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为Hexo"></a>&nbsp;<a target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用butterfly"></a>&nbsp;<a target="_blank" href="https://www.jsdelivr.com/"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr" title="本站使用JsDelivr为静态资源提供CDN加速"></a> &nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Vervel-brightgreen?style=flat&logo=Vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&logo=Codio" title="本站采用双线部署，联通线路托管于Coding"></a>&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由Gtihub托管"></a>&nbsp;<a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/blog/js/utils.js"></script><script src="/blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
