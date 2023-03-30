@@ -1,0 +1,348 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>面试笔记 | Peace博客日记</title><meta name="author" content="peace"><meta name="copyright" content="peace"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="1. Nginx 是什么？它有哪些应用场景？Nginx 是一个高性能的开源 Web 服务器和反向代理服务器，可以处理大量的并发连接和请求，它使用事件驱动的异步架构和多线程设计，同时也支持反向代理、负载均衡、动态HTTP缓存、SSL&#x2F;TLS终止、基于模块的扩展等功能。 Nginx 的应用场景  Web 服务器，Nginx 可以作为 HTTP 服务器，处理并发的动态请求和静态请求，并且可以支">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试笔记">
+<meta property="og:url" content="http://example.com/2023/03/30/%E9%9D%A2%E8%AF%95%E9%B8%AD30%E5%A4%A9%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Peace博客日记">
+<meta property="og:description" content="1. Nginx 是什么？它有哪些应用场景？Nginx 是一个高性能的开源 Web 服务器和反向代理服务器，可以处理大量的并发连接和请求，它使用事件驱动的异步架构和多线程设计，同时也支持反向代理、负载均衡、动态HTTP缓存、SSL&#x2F;TLS终止、基于模块的扩展等功能。 Nginx 的应用场景  Web 服务器，Nginx 可以作为 HTTP 服务器，处理并发的动态请求和静态请求，并且可以支">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/defaultcover1.jpeg">
+<meta property="article:published_time" content="2023-03-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-29T16:00:00.000Z">
+<meta property="article:author" content="peace">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/defaultcover1.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/03/30/%E9%9D%A2%E8%AF%95%E9%B8%AD30%E5%A4%A9%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '面试笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2023-03-30 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/defaultcover1.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="Peace博客日记"><span class="site-name">Peace博客日记</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">面试笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-29T16:00:00.000Z" title="发表于 2023-03-30 00:00:00">2023-03-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-29T16:00:00.000Z" title="更新于 2023-03-30 00:00:00">2023-03-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="面试笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h4 id="1-Nginx-是什么？它有哪些应用场景？"><a href="#1-Nginx-是什么？它有哪些应用场景？" class="headerlink" title="1. Nginx 是什么？它有哪些应用场景？"></a><strong>1. Nginx 是什么？它有哪些应用场景？</strong></h4><p><code>Nginx</code> 是一个高性能的开源 <code>Web</code> 服务器和反向代理服务器，可以处理大量的并发连接和请求，它使用<strong>事件驱动的异步架构和多线程设计</strong>，同时也支持<strong>反向代理、负载均衡、动态HTTP缓存、SSL&#x2F;TLS终止、基于模块的扩展</strong>等功能。</p>
+<p><code>Nginx</code> 的应用场景</p>
+<ul>
+<li><strong><code>Web</code> 服务器</strong>，<code>Nginx</code> 可以作为 <code>HTTP</code> 服务器，处理并发的动态请求和静态请求，并且可以支持<strong>负载均衡</strong>和<strong>缓存</strong>，为网站提供高性能和高可用性</li>
+<li><strong>反向代理服务器</strong>，Nginx可以作为反向代理服务器，接收客户端发来的请求将其转发到后端服务器，同时也支负载均衡和缓存</li>
+<li><strong>邮件代理服务器</strong>：Nginx 可以作为邮件代理服务器，支持 POP3、IMAP 和 SMTP 协议，并且可以支持 SSL&#x2F;TLS 加密和反垃圾邮件功能。</li>
+<li><strong>流媒体服务器</strong>：Nginx 可以作为流媒体服务器，支持 RTMP、HLS 和 DASH 协议，可以用于实现直播、点播和视频-on-demand（VoD）等场景。</li>
+</ul>
+<p><strong>Nginx注意的点：</strong></p>
+<ul>
+<li>nginx的匹配具有<code>优先顺序</code>，一旦匹配上就会立马退出，不再进行向下匹配</li>
+<li></li>
+</ul>
+<p><strong>平时自己的应用</strong></p>
+<ol>
+<li><p>作为一个 <code>Web</code> 服务器使用，可以将我们的项目上传到 <code>nginx</code> 的目录中，再在conf中对项目的访问路径进行配置</p>
+</li>
+<li><p>利用 <code>nginx</code> 做反向代理解决跨域</p>
+<p>当一个请求url的<strong>协议,域名,端口</strong>三者之间任意一个与当前的url不同都即为跨域，当发起 <code>Ajax</code> 请求时，会由于  <strong>浏览器的同源策略</strong> 限制阻止这次访问。解决就可以用<code>nginx</code> 监听发起请求的服务，将那个请求转发到和后端一个端口上，这样就解决了跨域问题</p>
+</li>
+<li><p>负载均衡</p>
+<p>利用<code>nginx</code> 做服务的负载均衡，可以减少服务器的压力，保持服务器的高并发和高可用</p>
+</li>
+</ol>
+<h4 id="2-Redis-的持久化机制有哪些？说说各自的优缺点和应用场景？"><a href="#2-Redis-的持久化机制有哪些？说说各自的优缺点和应用场景？" class="headerlink" title="2. Redis 的持久化机制有哪些？说说各自的优缺点和应用场景？"></a><strong>2. Redis 的持久化机制有哪些？说说各自的优缺点和应用场景？</strong></h4><p>Redis 的持久化机制主要分为 <strong>RDB</strong> 和 <strong>AOF</strong> 两种。</p>
+<h5 id="RDB-持久化机制"><a href="#RDB-持久化机制" class="headerlink" title="RDB 持久化机制"></a>RDB 持久化机制</h5><p>RDB 持久化机制是指将 Redis 在内存中的数据以<strong>快照</strong>的形式写入磁盘中，可以手动或自动执行快照操作，<strong>将数据集的状态保存到一个 RDB 文件中</strong>。</p>
+<p>RDB 机制的优点在于：</p>
+<ul>
+<li>RDB 机制<strong>适合在数据集比较大时进行备份操作</strong>，因为它可以<strong>生成一个非常紧凑、经过压缩的数据文件</strong>，对于<strong>备份、恢复、迁移数据</strong>都很方便。</li>
+</ul>
+<blockquote>
+<p>RDB 机制在 Redis 重启时比 AOF 机制更快地将 Redis 恢复到内存中。</p>
+</blockquote>
+<p>RDB 机制的缺点在于：</p>
+<ul>
+<li>RDB 机制可<strong>能会出现数据丢失</strong>，因为<strong>数据是周期性地进行备份</strong>，一旦 Redis 出现问题并且上一次备份之后还没有进行过数据变更，那么这部分数据将会丢失。</li>
+<li>RDB 机制会造成一定的 <strong>IO 压力</strong>，当数据集比较大时，进行备份操作可能会阻塞 Redis 服务器进程。</li>
+</ul>
+<h5 id="AOF-持久化机制"><a href="#AOF-持久化机制" class="headerlink" title="AOF 持久化机制"></a>AOF 持久化机制</h5><p>AOF 持久化机制是指<strong>将 Redis 在内存中的操作命令以追加的形式写入到磁盘中的 AOF 文件</strong>，AOF 文件记录了 Redis 在内存中的操作过程，只要在 Redis 重启后重新执行 AOF 文件中的操作命令即可将数据恢复到内存中。</p>
+<p>AOF 机制的优点在于：</p>
+<ul>
+<li>AOF 机制比 RDB 机制更加<strong>可靠</strong>，因为 AOF 文件<strong>记录了 Redis 执行的所有操作命令</strong>，可以确保数据不丢失。</li>
+<li>AOF 机制在<strong>恢复大数据集时更加稳健</strong>，因为 AOF 文件记录了数据的操作过程，可以确保每一次操作都被正确地执行。</li>
+</ul>
+<p>AOF 机制的缺点在于：</p>
+<ul>
+<li>AOF 机制生成的 <strong>AOF 文件比 RDB 文件更大</strong>，当数据集比较大时，AOF 文件会比 RDB 文件占用更多的磁盘空间。</li>
+<li>AOF 机制对于<strong>数据恢复的时间比 RDB 机制更加耗时</strong>，因为要重新执行 AOF 文件中的所有操作命令。</li>
+</ul>
+<p>综上所述，RDB 适合用于<strong>数据集较大、备份、恢复数据和迁移数据</strong>等场景，AOF 适合用于<strong>数据可靠性要求高、数据恢复稳健</strong>等场景。</p>
+<p>RDB  以快照的形式写入磁盘中，存储为一个RDB数据集</p>
+<p>优点：</p>
+<ol>
+<li>占用空间相对小，数据迁移，备份方便</li>
+<li>redis重启时速度快</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>RDB 机制可<strong>能会出现数据丢失</strong>，因为<strong>数据是周期性地进行备份</strong>，一旦 Redis 出现问题并且上一次备份之后还没有进行过数据变更，那么这部分数据将会丢失。</li>
+<li>会造成一定的IO压力，数据集大的时候容易造成 服务器进程堵塞</li>
+</ol>
+<p>AOF 将redis操作命令以追加的形式存储到磁盘的AOF文件中，redis重启之后只需要重新执行AOF文件就可以回复数据</p>
+<p>优点：</p>
+<ol>
+<li>可靠，可以保证数据不丢失</li>
+<li>数据恢复更加稳健，因为执行的是每一条命令，可以确保数据都是一致的</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>文件更大，更加占用磁盘空间</li>
+<li>恢复时间更长</li>
+</ol>
+<h4 id="3-MVCC-是什么？InnoDB-是如何实现-MVCC-机制的？"><a href="#3-MVCC-是什么？InnoDB-是如何实现-MVCC-机制的？" class="headerlink" title="3. MVCC 是什么？InnoDB 是如何实现 MVCC 机制的？"></a>3. <strong>MVCC 是什么？InnoDB 是如何实现 MVCC 机制的？</strong></h4><p>MVCC 是指<strong>多版本并发控制</strong>（Multiversion Concurrency Control），是一种<strong>并发控制机制</strong>，常用于数据库系统中，用于实现<strong>事务的并发控制</strong>。它允许在<strong>同一时间多个事务对同一个数据集合进行读取操作</strong>，同时防止数据不一致和其他并发问题。</p>
+<p>InnoDB 是 MySQL 中最常用的存储引擎之一，它的 MVCC 实现是<strong>通过在每行记录中添加两个隐藏的列，分别记录行的创建时间和过期时间，以此来判断事务对该行记录的可见性</strong>。当一个事务需要读取一行记录时，InnoDB 首先读取这行记录的创建时间和过期时间，并根据这些信息判断该行记录是否可见。如果创建时间早于当前事务的开始时间，且过期时间晚于当前事务的开始时间，那么该行记录对当前事务可见。</p>
+<p>在 InnoDB 中，MVCC 主要是通过实现以下几个机制来实现的：</p>
+<ol>
+<li><strong>事务版本号</strong>：每个事务都有一个唯一的版本号，用来标识该事务的创建时间。</li>
+<li><strong>读取视图</strong>：每个事务在开始时都会创建一个读取视图，记录该事务开始时间和其他信息。在事务执行期间，所有读取操作都要检查该视图，以确定读取哪些版本的数据。</li>
+<li>undo 日志：在事务执行期间，如果对数据进行修改，那么会先将原始数据复制一份到 undo 日志中。这样，在回滚操作时就可以使用 undo 日志中的数据来还原原始数据。</li>
+<li>快照读取：在某些情况下，事务需要读取一个数据的历史版本，而不是当前版本。这时可以使用快照读取来实现，即在读取时根据事务开始时间和 undo 日志来读取历史版本的数据。</li>
+</ol>
+<p>多版本并发控制	用来实现事务的并发控制	允许同一时间多个事务对同一个数据集合进行读取操作，同时防止数据不一致</p>
+<p>新增两个数据的隐藏列，记录创建时间和过期时间，当一个事务要读取一行数据的时候，会先判断当前时间是否晚于创建时间且早于过期时间，如果是，说明当前还有个事务在执行，当前数据不可见。</p>
+<p>同时有个undo日志。用来记录事务开始前的原始数据的样子，用于回滚</p>
+<h4 id="如何使用-Redis-实现一个排行榜？"><a href="#如何使用-Redis-实现一个排行榜？" class="headerlink" title="如何使用 Redis 实现一个排行榜？"></a><strong>如何使用 Redis 实现一个排行榜？</strong></h4><p>Redis 实现排行榜是 Redis 中一个很常见的场景，主要使用的是 <strong>ZSet</strong> 进行实现，下面是为什么选用 ZSet：</p>
+<ul>
+<li><strong>有序性</strong>：排行榜肯定需要实现一个排序的功能，在 Redis 中有序的数据结构有 List 和 ZSet；</li>
+<li><strong>支持分数操作</strong>：ZSet 可以对集合中的元素进行增删改查操作，十分贴合排行榜中用户分数动态变化的场景，而 List 并不能针对分数进行操作，只有其中的 value 进行操作；</li>
+<li><strong>支持范围查询</strong>：ZSet 可以按照分数进行范围查询，如排行榜中的 Top10 需求就可通过该特性进行实现；</li>
+<li>支持去重：由于 ZSet 属于 Set 的特殊数据结构，因此同样拥有 Set 不可重复的特性，对于排行榜中不可出现重复项的需求也十分贴合，而 List 只能手动去重。</li>
+</ul>
+<p>因此选择ZSet实现排行榜相对于List实现会更合适和高效。</p>
+<h4 id="4-Dubbo-是什么？是否了解过它的架构设计？"><a href="#4-Dubbo-是什么？是否了解过它的架构设计？" class="headerlink" title="4. Dubbo 是什么？是否了解过它的架构设计？"></a><strong>4. Dubbo 是什么？是否了解过它的架构设计？</strong></h4><p><code>Dubbo</code> 是一个<strong>高性能，轻量级</strong>的开源 <code>RPC</code> 框架</p>
+<p><strong>什么是RPC</strong></p>
+<p>RPC 全称为 remote procedure call，即远程过程调用。</p>
+<p>比如两台服务器 A 和 B，A 服务器上部署一个应用，B 服务器上部署一个应用，A 服务器上的应用想调用B 服务器上的应用提供的方法，由于两个应用不在一个内存空间，不能直接调用，所以需要通过网络来表达调用的语义和传达调用的数据。</p>
+<ol>
+<li>服务容器负责启动，加载，运行服务提供者。</li>
+<li>服务提供者在启动时，向注册中心注册自己提供的服务。</li>
+<li>服务消费者在启动时，向注册中心订阅自己所需的服务。</li>
+<li>注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者。</li>
+<li>服务消费者，从提供者地址列表中，基于负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。</li>
+<li>服务消费者和提供者，在内存中累计调用次数和调用时间，定时每分钟发送一次统计数据到监控中心。</li>
+</ol>
+<p><img src="E:\peace\笔记\asserts\image-20230309205625863.png" alt="image-20230309205625863"></p>
+<h4 id="5-synchronized-关键字是什么，有什么作用？"><a href="#5-synchronized-关键字是什么，有什么作用？" class="headerlink" title="5. synchronized 关键字是什么，有什么作用？"></a>5. synchronized 关键字是什么，有什么作用？</h4><p><code>synchronized</code> 是 <code>Java</code> 中用于实现同步的关键字，用于实现线程同步。具体来说，<code>synchronized</code> 修饰方法或者代码块，使得同一时间，只有一个线程可以执行被修饰的代码。其他线程需要等待当前线程执行完成之后才能访问。</p>
+<p>synchronized 主要用于解决<strong>多线程并发访问共享资源</strong>时出现的<strong>线程安全问题</strong>。</p>
+<p>如果多个线程同时访问一个共享资源，可能会出现同时对于这个资源进行修改的问题。就会导致数据不一致的问题。而使用 <code>synchronzed</code> 可以保证同一时间只有一个线程可以访问该资源，从而避免了线程安全问题。</p>
+<p>synchronized 的作用不仅限于线程同步，它还可以保证<strong>可见性</strong>和<strong>有序性</strong>，即保证在同一个锁上，<strong>一个线程修改了共享变量的值之后，另一个线程能够立即看到修改后的值，并且在多个线程执行顺序上保证了一致性。</strong></p>
+<p>需要注意的是，使用 synchronized 会带来一定的<strong>性能损失</strong>，因为<strong>每次进入同步块时都需要获得锁</strong>，这会增加线程的<strong>等待时间</strong>和<strong>上下文切换的开销</strong>。同时，如果<strong>同步块的代码执行时间很短</strong>，也会增加不必要的<strong>性能开销</strong>。因此，需要根据具体情况来判断是否需要使用 synchronized</p>
+<h4 id="6-如何设计一个点赞系统"><a href="#6-如何设计一个点赞系统" class="headerlink" title="6.如何设计一个点赞系统"></a>6.如何设计一个点赞系统</h4><p>设计一个点赞系统可以分为以下几个步骤：</p>
+<ul>
+<li><strong>确定需求</strong>：需要明确<strong>点赞的对象是什么</strong>，是否需要<strong>计数</strong>等信息，同时需要考虑<strong>点赞的业务场景</strong>，如<strong>用户点赞、文章点赞</strong>等。</li>
+<li><strong>数据库设计</strong>：需要设计<strong>点赞相关的数据表</strong>，可以包含<strong>点赞者 ID、被点赞对象 ID、点赞时间</strong>等字段。</li>
+<li><strong>接口设计</strong>：需要<strong>设计点赞相关的接口</strong>，包括<strong>点赞、取消点赞、查询点赞数</strong>等操作。</li>
+<li><strong>业务逻辑实现</strong>：在接口中实现点赞相关的<strong>业务逻辑</strong>，包括<strong>判断点赞状态、更新点赞数、更新点赞状态</strong>等操作。</li>
+<li><strong>安全性考虑</strong>：需要考虑并发访问的情况，可以使用<strong>分布式锁</strong>来保证<strong>数据一致性</strong>和<strong>安全性</strong>。</li>
+<li><strong>性能优化</strong>：如果点赞系统的访问量很高，可以使用缓存来提高性能，比如使用 <strong>Redis 来缓存点赞数</strong>等信息。</li>
+<li><strong>监控和日志</strong>：需要对点赞系统进行监控和日志记录，以便及时发现和排查问题。</li>
+</ul>
+<p>总之，设计一个点赞系统需要综合考虑<strong>需求、数据库设计、接口设计、业务逻辑实现、安全性、性能优化</strong>等方面，同时需要不断优化和完善。</p>
+<h4 id="7-什么是单例模式？使用单例模式有什么好处？有哪些常用的单例模式实现方式？各自的应用场景是什么？"><a href="#7-什么是单例模式？使用单例模式有什么好处？有哪些常用的单例模式实现方式？各自的应用场景是什么？" class="headerlink" title="7.什么是单例模式？使用单例模式有什么好处？有哪些常用的单例模式实现方式？各自的应用场景是什么？"></a><strong>7.什么是单例模式？使用单例模式有什么好处？有哪些常用的单例模式实现方式？各自的应用场景是什么？</strong></h4><h5 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a><strong>单例模式</strong></h5><p>单例模式的目的是确保一个类只有一个实例，并且向外提供一个<strong>全局访问点</strong>。我们可以在任意地方访问到创建的单例。单例模式主要是可以避免多次创建对象，导致内存消耗，节省内存资源。同时也可以保证数据一致性的问题。</p>
+<ol>
+<li><strong>节省内存空间</strong>。单例模式只创建一个实例，避免了多次创建对象所造成的内存消耗。</li>
+<li><strong>简化代码</strong>。单例模式提供了一个<strong>全局的访问点</strong>，可以方便地调用实例的方法，避免了重复的代码。</li>
+<li><strong>保证数据的一致性</strong>。由于只有一个实例，可以<strong>避免并发访问时数据不一致</strong>的问题。</li>
+</ol>
+<h5 id="双检锁创建单例的实例"><a href="#双检锁创建单例的实例" class="headerlink" title="双检锁创建单例的实例"></a>双检锁创建单例的实例</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 私有构造方法</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">    <span class="comment">// 使用volatile禁止单例对象创建时的重排序</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Singleton instance;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 对外提供静态方法获取该对象</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="comment">// 第一次判断，如果instance不为null，不进入抢锁阶段，直接返回实际</span></span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">                <span class="comment">// 抢到锁之后再次判断是否为空</span></span><br><span class="line">                <span class="keyword">if</span>(instance == <span class="literal">null</span>) &#123;</span><br><span class="line">                    instance = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这份实例中有两个知识点</p>
+<ul>
+<li><strong>双检锁</strong></li>
+</ul>
+<p>双检锁其实就是对于多线程中，确保自己在获取锁之后。自己之前的判断条件仍然有效的处理。是一种确保线程安全的方法。防止的就是自己在获取锁的这个时间段内，其他线程对共享资源进行操作，导致不满足前一步的判断条件，导致出现线程安全问题。</p>
+<p>这个应用除了在这里创建单例模式，还有<code>redis</code>中 处理缓存击穿的解决方案里面也用到了双检锁的检查机制。以此来节省资源</p>
+<ul>
+<li><strong>volatile</strong>关键字防止指令重排</li>
+</ul>
+<p>指令重排是指的是虚拟机在编译代码时，会将部分代码进行重排序，以优化执行速度。但是在多线程的情况下，对于某些共享资源的重排序。可能会导致到我们引用对一个未进行初始化的对象进行引用的情况，就会出现错误。</p>
+<p>下面的代码在多线程环境下不是原子执行的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">instance=<span class="keyword">new</span> <span class="title class_">DoubleCheckSingleton</span>();</span><br></pre></td></tr></table></figure>
+
+<p>正常的底层执行顺序会转变成三步：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>) 给<span class="title class_">DoubleCheckSingleton</span>类的实例instance分配内存</span><br><span class="line"></span><br><span class="line">(<span class="number">2</span>) 调用实例instance的构造函数来初始化成员变量</span><br><span class="line"></span><br><span class="line">(<span class="number">3</span>) 将instance指向分配的内存地址</span><br></pre></td></tr></table></figure>
+
+<p>上面的三步，无论在A线程当前执行到那一步骤，对B线程来说可能看到A的状态只能是两种1，2看到的都是null，3看到的非null，这是没问题的。</p>
+<p>但是如果线程A在重排序的情况下，上面的执行顺序会变成1,3,2。现在假设A线程按1,3,2三个步骤顺序执行，当执行到第二步的时候。B线程开始调用这个方法，那么在第一个null的检查的时候，就有可能看到这个实例不是null，然后直接返回这个实例开始使用，但其实是有问题的，因为对象还没有初始化，状态还处于不可用的状态，故而会导致异常发生。</p>
+<h5 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h5><p>单例模式在开发中有许多适用的场景，如：</p>
+<ol>
+<li><strong>数据库连接池</strong>：在多线程环境下，为了避免频繁地创建和释放数据库连接，可以使用单例模式来实现数据库连接池，<strong>保证系统中只有一个连接池实例</strong>；</li>
+<li><strong>应用程序配置信息对象</strong>：在系统中需要读取应用程序配置信息时，为了避免重复读取和存储配置信息，可以使用单例模式来实现配置信息对象，<strong>保证系统中只有一个配置信息对象实例</strong>；</li>
+<li><strong>线程池</strong>：在多线程环境下，为了避免频繁地创建和销毁线程，可以使用单例模式来实现线程池，<strong>保证系统中只有一个线程池实例</strong>。</li>
+</ol>
+<p>在我们日常开发中接触到的 Java 和 Spring 也有许多地方应用了单例模式：</p>
+<ol>
+<li>在 Java 中，<strong>Runtime</strong> 类就是一个单例模式。这个类提供了<strong>访问 Java 虚拟机的运行时环境的方法</strong>，比如获取内存信息、获取 CPU 核心数等。由于每个 Java 应用程序只有一个 Java 虚拟机实例，因此Runtime类只需要一个实例即可，这就是单例模式的应用。</li>
+<li>在 Spring 框架中，ApplicationContext 对象也是一个单例模式。ApplicationContext 对象是 Spring 框架中的<strong>容器对象</strong>，负责管理 Bean 对象的创建、初始化、依赖注入等操作。由于 ApplicationContext 对象的创建和初始化需要消耗大量的系统资源，因此在整个应用程序中只需要一个 ApplicationContext 对象实例即可，这就是单例模式的应用。</li>
+</ol>
+<h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><p><strong>单例模式</strong>虽然好，但是任何设计模式都会存在其弊端，因此在使用过程中需要注意以下问题：</p>
+<ol>
+<li><strong>线程安全问题</strong>。这个问题在饿汉式中是一个常见的问题，普通的<strong>饿汉式</strong>方案在多线程情况下容易出现并发问题导致创建多个不同的实例，因此在实现方案中可以使用<strong>加锁</strong>的方式保证线程的安全；</li>
+<li><strong>序列化和反序列化问题</strong>。在单例模式中存在着破坏单例的风险，而<strong>序列化</strong>和<strong>反序列化</strong>便是其中之一。当我们使用序列化和反序列化创建单例对象时会发现创建出来的对象都是不一样的，违背了单例模式的初衷，因此在需要序列化和反序列化类中实现实现 Serializable 接口，并且提供一个 readResolve()方法，以保证反序列化后仍然是同一个实例；</li>
+<li><strong>反射问题</strong>。使用单例模式时，需要考虑防止<strong>反射攻击</strong>。因为破坏单例的另外一种方式便是<strong>反射</strong>，就算是前面提及到的序列化和反序列化问题，<strong>底层也是通过反射来破坏单例的</strong>。因此在开发过程中可以<strong>在构造方法中判断是否已经存在实例，如果存在则抛出异常，防止通过反射创建新的实例</strong>。</li>
+</ol>
+<h4 id="8-覆盖索引和联合索引是什么？讲一下索引的最左前缀匹配原则"><a href="#8-覆盖索引和联合索引是什么？讲一下索引的最左前缀匹配原则" class="headerlink" title="8. 覆盖索引和联合索引是什么？讲一下索引的最左前缀匹配原则"></a>8. 覆盖索引和联合索引是什么？讲一下索引的最左前缀匹配原则</h4><p><strong>覆盖索引</strong></p>
+<p>是指 SQL 中 query 的所有字段，在索引 B+ Tree 的叶子节点上都能找得到的那些索引，从二级索引中查询得到记录，而不需要通过<strong>聚簇索引</strong>查询获得，可以<strong>避免回表</strong>的操作</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">id ⬅<span class="comment">------------</span></span><br><span class="line"><span class="keyword">FROM</span> test       <span class="operator">|</span> 前提: 给id建了索引<span class="operator">!</span><span class="operator">!</span><span class="operator">!</span></span><br><span class="line"><span class="keyword">WHERE</span>           <span class="operator">|</span> 前提: 给id建了索引<span class="operator">!</span><span class="operator">!</span><span class="operator">!</span></span><br><span class="line">id <span class="operator">&gt;</span> <span class="number">1</span>; ⬅<span class="comment">-------</span></span><br></pre></td></tr></table></figure>
+
+<p>也就是说，我们查询的字段就是索引字段本身，这样就可以直接返回。无需回表增加查询速度。</p>
+<p>涉及到索引优化又到尽量少使用 <code>select*</code> 特别是我们在查询少量字段的时候，因为有可能我们查询的字段是有索引的，但是我们如果使用 <code>select *</code> 的话就必须回表。</p>
+<p><strong>联合索引</strong></p>
+<p>通过将<strong>多个字段组合成一个索引</strong>，该索引就被称为联合索引。</p>
+<p><strong>最左前缀匹配原则</strong></p>
+<p>使用<strong>联合索引</strong>时，存在<strong>最左匹配原则</strong>，也就是按照<strong>最左优先</strong>的方式进行索引的匹配。在使用联合索引进行查询的时候，如果不遵循「<strong>最左匹配原则</strong>」，<strong>联合索引会失效</strong>，这样就无法利用到索引快速查询的特性了。</p>
+<p>同时 遇到范围查询(&gt;、&lt;、between、like)就会停止使用索引。</p>
+<h4 id="9-Spring-如何处理线程并发问题，ThreadLocal-你了解过吗？"><a href="#9-Spring-如何处理线程并发问题，ThreadLocal-你了解过吗？" class="headerlink" title="9. Spring 如何处理线程并发问题，ThreadLocal 你了解过吗？"></a>9. <strong>Spring 如何处理线程并发问题，ThreadLocal 你了解过吗？</strong></h4><p>Spring 框架中处理线程并发问题的方式包括以下几种：</p>
+<ul>
+<li><strong>同步关键字 synchronized</strong>：使用 synchronized 关键字可以<strong>对共享资源进行加锁</strong>，从而<strong>保证多线程访问时的同步性</strong>。但是，synchronized 对性能会产生一定的影响，并且容易导致<strong>死锁</strong>等问题。</li>
+<li><strong>Lock 接口</strong>：Lock 接口提供了比 synchronized 更加<strong>灵活</strong>的加锁方式，并且可以<strong>防止死锁</strong>问题的发生。但是，Lock 接口的<strong>使用相对较复杂</strong>，需要<strong>手动进行加锁和解锁</strong>操作。</li>
+<li><strong>ThreadLocal 类</strong>：ThreadLocal 类提供了<strong>线程本地变</strong>量的功能，可以让每个线程拥有自己的<strong>变量副本</strong>，从而避免了多个线程之间的共享问题。但是，ThreadLocal 类的使用需要注意<strong>内存泄漏</strong>问题。</li>
+</ul>
+<p>关于 ThreadLocal，它是 Java 中一个非常重要的类，用于实现线<strong>程本地存储</strong>，即让每个线程都拥有自己的变量副本，从而避免多个线程之间的共享问题。</p>
+<p>在 <strong>Spring</strong> 框架中，ThreadLocal 类经常用于存储一些<strong>与当前线程相关的数据</strong>，例如<strong>请求上下文、用户信息</strong>等。通过将这些数据存储到 ThreadLocal 对象中，可以方便地在整个应用程序中进行访问和传递，同时<strong>避免了多个线程之间的共享问题</strong>。</p>
+<p>ThreadLocal 的设计在感觉上使用到了代理模式，我们表面上操作的是<code>TreadLocal</code> 实际上，我们是对<code>ThreadLocalMap</code> 进行操作，然后 <code>ThreadLocal</code> 在使用上又对调用 <code>ThreadLocalMap</code> 的方法做了一定的封装。从而实现了对 <code>ThreadLocalMap</code> 的更加细节的判断和操作，比如<code>remove</code>，<code>get</code>，<code>set</code>，方法会释放掉键为<code>null</code> 的键值对，防止内存泄漏</p>
+<p>ThreadLocal 类的使用需要注意<strong>内存泄漏</strong>问题，因为<strong>线程本地变量只有在对应的线程被回收时才会被回收</strong>，如果没有及时清理，就可能导致内存泄漏问题。因此，在使用 ThreadLocal 类时，需要注意在不需要存储数据时及时调用 <strong>remove()</strong> 方法清理 ThreadLocal 对象中的数据。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">peace</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/30/%E9%9D%A2%E8%AF%95%E9%B8%AD30%E5%A4%A9%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">http://example.com/2023/03/30/%E9%9D%A2%E8%AF%95%E9%B8%AD30%E5%A4%A9%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Peace博客日记</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/defaultcover1.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/30/%E6%AF%8F%E6%97%A5%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/" title="每日知识理解"><img class="cover" src="/img/defaultcover2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">每日知识理解</div></div></a></div><div class="next-post pull-right"><a href="/2023/03/29/2023-03-29/" title="第一篇文章"><img class="cover" src="/img/defaultcover3.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第一篇文章</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">peace</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/peace2011" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/1798872280@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Nginx-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%AE%83%E6%9C%89%E5%93%AA%E4%BA%9B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">1. Nginx 是什么？它有哪些应用场景？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Redis-%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E6%9C%BA%E5%88%B6%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E8%AF%B4%E8%AF%B4%E5%90%84%E8%87%AA%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%92%8C%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">2. Redis 的持久化机制有哪些？说说各自的优缺点和应用场景？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#RDB-%E6%8C%81%E4%B9%85%E5%8C%96%E6%9C%BA%E5%88%B6"><span class="toc-number">2.1.</span> <span class="toc-text">RDB 持久化机制</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AOF-%E6%8C%81%E4%B9%85%E5%8C%96%E6%9C%BA%E5%88%B6"><span class="toc-number">2.2.</span> <span class="toc-text">AOF 持久化机制</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-MVCC-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9FInnoDB-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0-MVCC-%E6%9C%BA%E5%88%B6%E7%9A%84%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">3. MVCC 是什么？InnoDB 是如何实现 MVCC 机制的？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Redis-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%8E%92%E8%A1%8C%E6%A6%9C%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">如何使用 Redis 实现一个排行榜？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Dubbo-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E6%98%AF%E5%90%A6%E4%BA%86%E8%A7%A3%E8%BF%87%E5%AE%83%E7%9A%84%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">4. Dubbo 是什么？是否了解过它的架构设计？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-synchronized-%E5%85%B3%E9%94%AE%E5%AD%97%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">5. synchronized 关键字是什么，有什么作用？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E7%82%B9%E8%B5%9E%E7%B3%BB%E7%BB%9F"><span class="toc-number">7.</span> <span class="toc-text">6.如何设计一个点赞系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%9F%E4%BD%BF%E7%94%A8%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%EF%BC%9F%E6%9C%89%E5%93%AA%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%EF%BC%9F%E5%90%84%E8%87%AA%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">7.什么是单例模式？使用单例模式有什么好处？有哪些常用的单例模式实现方式？各自的应用场景是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="toc-number">8.1.</span> <span class="toc-text">单例模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8C%E6%A3%80%E9%94%81%E5%88%9B%E5%BB%BA%E5%8D%95%E4%BE%8B%E7%9A%84%E5%AE%9E%E4%BE%8B"><span class="toc-number">8.2.</span> <span class="toc-text">双检锁创建单例的实例</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">8.3.</span> <span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">8.4.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95%E5%92%8C%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E8%AE%B2%E4%B8%80%E4%B8%8B%E7%B4%A2%E5%BC%95%E7%9A%84%E6%9C%80%E5%B7%A6%E5%89%8D%E7%BC%80%E5%8C%B9%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-number">9.</span> <span class="toc-text">8. 覆盖索引和联合索引是什么？讲一下索引的最左前缀匹配原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-Spring-%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E9%97%AE%E9%A2%98%EF%BC%8CThreadLocal-%E4%BD%A0%E4%BA%86%E8%A7%A3%E8%BF%87%E5%90%97%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">9. Spring 如何处理线程并发问题，ThreadLocal 你了解过吗？</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/03/30/Mybatis%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/" title="Mybatis源码理解"><img src="/img/defaultcover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mybatis源码理解"/></a><div class="content"><a class="title" href="/2023/03/30/Mybatis%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/" title="Mybatis源码理解">Mybatis源码理解</a><time datetime="2023-03-29T16:00:00.000Z" title="发表于 2023-03-30 00:00:00">2023-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/30/2023-03-30-Java%E6%95%B0%E7%BB%84/" title="Java数组"><img src="/img/defaultcover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java数组"/></a><div class="content"><a class="title" href="/2023/03/30/2023-03-30-Java%E6%95%B0%E7%BB%84/" title="Java数组">Java数组</a><time datetime="2023-03-29T16:00:00.000Z" title="发表于 2023-03-30 00:00:00">2023-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/30/%E6%AF%8F%E6%97%A5%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/" title="每日知识理解"><img src="/img/defaultcover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日知识理解"/></a><div class="content"><a class="title" href="/2023/03/30/%E6%AF%8F%E6%97%A5%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/" title="每日知识理解">每日知识理解</a><time datetime="2023-03-29T16:00:00.000Z" title="发表于 2023-03-30 00:00:00">2023-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/30/%E9%9D%A2%E8%AF%95%E9%B8%AD30%E5%A4%A9%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" title="面试笔记"><img src="/img/defaultcover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试笔记"/></a><div class="content"><a class="title" href="/2023/03/30/%E9%9D%A2%E8%AF%95%E9%B8%AD30%E5%A4%A9%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" title="面试笔记">面试笔记</a><time datetime="2023-03-29T16:00:00.000Z" title="发表于 2023-03-30 00:00:00">2023-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/29/2023-03-29/" title="第一篇文章"><img src="/img/defaultcover3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第一篇文章"/></a><div class="content"><a class="title" href="/2023/03/29/2023-03-29/" title="第一篇文章">第一篇文章</a><time datetime="2023-03-28T16:00:00.000Z" title="发表于 2023-03-29 00:00:00">2023-03-29</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/defaultcover1.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2023 By peace</div><div class="footer_custom_text">I wish you to become your own sun, no need to rely on who's light.<p><a target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为Hexo"></a>&nbsp;<a target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用butterfly"></a>&nbsp;<a target="_blank" href="https://www.jsdelivr.com/"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr" title="本站使用JsDelivr为静态资源提供CDN加速"></a> &nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Vervel-brightgreen?style=flat&logo=Vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&logo=Codio" title="本站采用双线部署，联通线路托管于Coding"></a>&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由Gtihub托管"></a>&nbsp;<a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
